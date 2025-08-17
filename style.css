@@ -1,4 +1,4 @@
-/* GERAL */
+/* VARIÁVEIS DE TEMA */
 :root {
     --primary-color-light: #ff0000;
     --background-light: #FFFFFF;
@@ -13,13 +13,13 @@
     --border-color-dark: #333333;
 }
 
+/* GERAL */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* THEME SWITCHER */
 .light-theme {
     --primary-color: var(--primary-color-light);
     --background: var(--background-light);
@@ -108,7 +108,15 @@ header nav ul li a {
     font-weight: 600;
 }
 
-/* HERO SECTION */
+/* MENU HAMBURGUER */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* HERO */
 .hero .container {
     display: flex;
     align-items: center;
@@ -143,7 +151,7 @@ header nav ul li a {
     border: 10px solid var(--primary-color);
 }
 
-/* ABOUT SECTION */
+/* ABOUT */
 .about .container {
     display: flex;
     align-items: center;
@@ -187,7 +195,7 @@ header nav ul li a {
     border-radius: 10px;
 }
 
-/* SERVICES SECTION */
+/* SERVICES */
 .services .card {
     background-color: var(--card-bg);
     padding: 30px;
@@ -201,14 +209,13 @@ header nav ul li a {
     gap: 30px;
 }
 
-
 .services .card i {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
-/* PROJECTS SECTION */
+/* PROJECTS */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -241,7 +248,7 @@ header nav ul li a {
     padding-bottom: 20px;
 }
 
-/* CONTACT SECTION */
+/* CONTACT */
 .contact {
     text-align: center;
 }
@@ -276,9 +283,10 @@ footer .container {
     gap: 15px;
 }
 
-/* THEME TOGGLE STYLES */
+/* THEME TOGGLE */
 .theme-switcher {
     position: relative;
+    margin-left: 20px;
 }
 
 #theme-toggle {
@@ -314,4 +322,56 @@ footer .container {
 
 #theme-toggle:checked + label::after {
     transform: translateX(23px);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image img { max-width: 250px; margin-top: 20px; }
+    .about .container { flex-direction: column; text-align: center; }
+    .about-image img { max-width: 200px; }
+    .about-content h2 { text-align: center; }
+    .contact form { flex-direction: column; }
+    .contact input { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    header nav ul { display: none; }
+    .menu-toggle { display: block; }
+    header nav.active ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        gap: 15px;
+        z-index: 1000;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    .btn { width: 100%; text-align: center; }
+    h2 { font-size: 1.8rem; }
+    .service-cards, .project-grid { grid-template-columns: 1fr; }
+}
+
+/* FACULDADE */
+.college-content {
+    margin-bottom: 40px;
+}
+
+.college-about {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
 }

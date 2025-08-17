@@ -22,3 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Alternar tema claro/escuro
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark-theme", themeToggle.checked);
+    document.body.classList.toggle("light-theme", !themeToggle.checked);
+});
+
+// Menu mobile
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("header nav");
+
+menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
